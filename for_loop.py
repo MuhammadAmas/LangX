@@ -1,7 +1,7 @@
 import re
 
-# Regular expression pattern for a basic for loop
-pattern = r'^for\s+(\w+)\s+in\s+.*:\s*$'
+# Regular expression pattern for for loop syntax
+pattern = r'^for\s*\(\s*([^;]+)\s*,\s*([^;]+)\s*,\s*([^)]+)\s*\)\s*$'
 
 # Prompt the user for input
 input_str = input("Enter a for loop statement: ")
