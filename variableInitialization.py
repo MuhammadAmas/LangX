@@ -1,51 +1,61 @@
 import re
 
-def variableDeclaration(declaration):
-    # Regular expression pattern to match variable declaration
-    pattern = r'^(num|decimal|letter)\s+([a-zA-Z_]\w*)$'
-
-    # Match the pattern in the declaration
-    match = re.match(pattern, declaration)
-
+def parse_initialization(text):
+    # Regular expression pattern to match variable initialization
+    pattern = r'^(num|decimal|letter|string) ([a-zA-Z_]\w*) = (([-]?[0-9]+(\.[0-9]+)?)|([\'"].*?[\'"]))$'
+    match = re.match(pattern, text)
+    
     if match:
-        # If a match is found
+        # Extract data type, variable name, and value from the match
         data_type = match.group(1)
         variable_name = match.group(2)
+        value = match.group(3)
 
-        if data_type == 'num':
-            # Valid numeric declaration
-            print(f"Valid declaration: {declaration}")
-            print("Data type: Numeric")
-            print("Variable name:", variable_name)
-        elif data_type == 'decimal':
-            # Valid decimal declaration
-            print(f"Valid declaration: {declaration}")
-            print("Data type: Decimal")
-            print("Variable name:", variable_name)
-        elif data_type == 'letter':
-            # Valid letter declaration
-            print(f"Valid declaration: {declaration}")
-            print("Data type: Letter")
-            print("Variable name:", variable_name)
-        else:
-            # Unknown data type
-            print(f"Invalid declaration: {declaration}")
-            print("Unknown data type.")
-    else:
-        # Invalid format
-        print(f"Invalid declaration: {declaration}")
-        print("Invalid format.")
-    print("\n")
+        if data_type == 'num' and '.' not in value:
+            # Valid numeric initialization
+            return data_type, variable_name, value
+        elif data_type == 'decimal' and '.' in value:
+            # Valid decimal initialization
+            return data_type, variable_name, value
+        elif data_type == 'letter' and re.match(r"^'.?'$", value):
+            # Valid letter initialization
+            return data_type, variable_name, value
+        elif data_type == 'string' and re.match(r'^".*?"$', value):
+            # Valid string initialization
+            return data_type, variable_name, value
 
-declarations = [
-    'num x',           # Valid numeric declaration
-    'decimal y',       # Valid decimal declaration
-    'letter z',        # Valid letter declaration
-    'text a',          # Invalid declaration: Unknown data type
-    'num_1 b',         # Invalid declaration: Invalid format
-    'decimal_2 c'     # Invalid declaration: Invalid format
-]
+    return None
 
-for declaration in declarations:
-    # Call variableDeclaration function for each declaration
-    variableDeclaration(declaration)
+
+def main():
+    text = '''
+    num a = 5
+    letter b = \'f\'
+    decimal c = 9.8 
+    num a = d
+    letter b = 3
+    '''
+
+    # Split the text into individual lines
+    texts = text.split('\n')
+    for initialize in texts:
+        initialize = initialize.strip()
+        if initialize:
+            # Parse each initialization
+            result = parse_initialization(initialize)
+            if result:
+                data_type, variable_name, value = result
+                # Print valid initialization details
+                print('Valid initialization:', initialize)
+                print('Data type:', data_type)
+                print('Variable name:', variable_name)
+                print('Value:', value)
+                print('---')
+            else:
+                # Print invalid initialization message
+                print('Invalid initialization:', initialize)
+                print('---')
+
+
+if __name__ == '__main__':
+    main()
