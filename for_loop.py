@@ -14,3 +14,5 @@ if match:
     print("Input matches the for loop syntax.")
 else:
     print("Input does not match the for loop syntax.")
+
+#for(init, cond, inc)
