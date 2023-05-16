@@ -55,6 +55,7 @@ def main():
                 # Print invalid initialization message
                 print('Invalid initialization:', initialize)
                 print('---')
+            print("\n")
 
 
 if __name__ == '__main__':
