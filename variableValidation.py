@@ -1,34 +1,51 @@
 import re
 
-pattern = r'^(num|decimal|letter)\s+(?![0-9_])[_a-zA-Z$][_a-zA-Z0-9$]*\s*=\s*(-?\d+(\.\d+)?|\'[a-zA-Z]\'|\"[a-zA-Z]+\")\s*$'
+def variableDeclaration(declaration):
+    # Regular expression pattern to match variable declaration
+    pattern = r'^(num|decimal|letter)\s+([a-zA-Z_]\w*)$'
 
-while True:
-    input_str = input(
-        "Enter a variable declaration and initialization statement: ")
-
-    match = re.match(pattern, input_str)
+    # Match the pattern in the declaration
+    match = re.match(pattern, declaration)
 
     if match:
-        print("Input is correct!")
-    else:
-        # Check specific reasons for invalid input
-        if not re.match(r'^(num|decimal|letter)', input_str):
-            print("Invalid input: Must start with 'num', 'decimal', or 'letter'.")
-        elif not re.match(r'^[a-zA-Z_]\w*', input_str):
-            print("Invalid input: Invalid variable name.")
-        elif not re.match(r'^(-?\d+(\.\d+)?|[\'"].*?[\'"])$', input_str):
-            print("Invalid input: Invalid value.")
+        # If a match is found
+        data_type = match.group(1)
+        variable_name = match.group(2)
+
+        if data_type == 'num':
+            # Valid numeric declaration
+            print(f"Valid declaration: {declaration}")
+            print("Data type: Numeric")
+            print("Variable name:", variable_name)
+        elif data_type == 'decimal':
+            # Valid decimal declaration
+            print(f"Valid declaration: {declaration}")
+            print("Data type: Decimal")
+            print("Variable name:", variable_name)
+        elif data_type == 'letter':
+            # Valid letter declaration
+            print(f"Valid declaration: {declaration}")
+            print("Data type: Letter")
+            print("Variable name:", variable_name)
         else:
-            print("Invalid input: Unknown error.")
+            # Unknown data type
+            print(f"Invalid declaration: {declaration}")
+            print("Unknown data type.")
+    else:
+        # Invalid format
+        print(f"Invalid declaration: {declaration}")
+        print("Invalid format.")
+    print("\n")
 
-'''
-output:
-Enter a variable declaration and initialization statement: num a = 7
-Input is correct!
+declarations = [
+    'num x',           # Valid numeric declaration
+    'decimal y',       # Valid decimal declaration
+    'letter z',        # Valid letter declaration
+    'text a',          # Invalid declaration: Unknown data type
+    'num_1 b',         # Invalid declaration: Invalid format
+    'decimal_2 c'     # Invalid declaration: Invalid format
+]
 
-Enter a variable declaration and initialization statement: decimal a = 8.0
-Input is correct!
-
-Enter a variable declaration and initialization statement: letter a = 'x'
-Input is correct!
-'''
+for declaration in declarations:
+    # Call variableDeclaration function for each declaration
+    variableDeclaration(declaration)
