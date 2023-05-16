@@ -1,6 +1,6 @@
 import re
 
-pattern = r'^(?![0-9_])[_a-zA-Z$][_a-zA-Z0-9$]*\s*$'
+pattern = r'^(num|decimal|letter)\s+(?![0-9_])[_a-zA-Z$][_a-zA-Z0-9$]*\s*$'
 
 # Example usage
 text = input("Enter variable declaration: ")
