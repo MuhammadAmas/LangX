@@ -14,18 +14,27 @@ To run this project, ensure that you have Python installed. Follow the steps bel
    git clone https://github.com/MuhammadAmas/LangX
    ```
 
-Navigate to the project directory:
-cd LangX
+2. Navigate to the project directory:
+
+    ```bash
+    cd LangX
+    ```
 
 ## Examples
 
 ### Here are a few examples of LangX code
 
-#### Variable declaration and initialization
+#### Variable Declaration
 
     'num x'
     'decimal y'
     'letter z'
+
+#### Variable Initialization
+
+    num a = 5
+    letter b = "f"
+    decimal c = 9.8 
 
 #### For loop
 
@@ -35,9 +44,6 @@ cd LangX
 
 This project was developed by the following collaborators:
 
-
-
-
 - **[Urooba Shameem](https://github.com/UroobaShameem)**
 - **[Muhammad Amas](https://github.com/MuhammadAmas)**
 - **[Zunain Ali Azam](https://github.com/ZunainAliAzam)**
@@ -45,4 +51,5 @@ This project was developed by the following collaborators:
 - **[Mariya Suleman](https://github.com/Mar67890)**
 
 ## License
+
 This project is licensed under the MIT License. See the LICENSE file for more details.
