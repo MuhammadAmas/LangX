@@ -27,6 +27,7 @@ def validate_variable_declaration(declaration):
     else:
         print(f"Invalid declaration: {declaration}")
         print("Invalid format.")
+    print("\n")
 
 # Example usage
 declarations = [
