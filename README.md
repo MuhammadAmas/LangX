@@ -4,6 +4,11 @@
 
 This project is made using Python and utilizes regular expressions (regex) to implement LangX, a custom programming language. The language includes features such as variable declarations, initializations, and a for loop.
 
+## Features
+- Variable declaration: Easily declare variables in LANGX.
+- Variable initialization: Initialize variables with values.
+- For loop: Execute repetitive tasks using the custom for loop implementation.
+
 ## Installation
 
 To run this project, ensure that you have Python installed. Follow the steps below:
