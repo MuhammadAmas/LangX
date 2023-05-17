@@ -1,7 +1,7 @@
 import re
 
 # Regular expression pattern to match variable declaration and initialization
-pattern = r'^(num|decimal|letter)\s+(?![0-9_])[_a-zA-Z$][_a-zA-Z0-9$]*\s*=\s*(-?\d+(\.\d+)?|\'[a-zA-Z]\'|\"[a-zA-Z]+\")\s*$'
+pattern = r'^(num|decimal|letter)\s+(?![0-9_])[a-zA-Z$][_a-zA-Z0-9$]*\s*=\s*(-?\d+(\.\d+)?|\'[a-zA-Z]\'|\"[a-zA-Z]+\")\s*$'
 
 while True:
     # Prompt the user to enter a variable declaration and initialization statement

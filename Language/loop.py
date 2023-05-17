@@ -25,7 +25,7 @@ def loopParsing(text):
 def main():
     # List of example for loop statements
     texts = [
-        'for (num i=0, i<10, i++)',
+        'for (num i=0 i<10, i++)',
         'for (num i=2, i<5, i++)',
         'for (num i=1, i<9, i++)',
         'for (letter i=0, i<10, i++)',
