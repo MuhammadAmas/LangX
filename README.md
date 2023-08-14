@@ -49,8 +49,8 @@ To run this project, ensure that you have Python installed. Follow the steps bel
 
 This project was developed by the following collaborators:
 
-- **[Urooba Shameem](https://github.com/UroobaShameem)**
 - **[Muhammad Amas](https://github.com/MuhammadAmas)**
+- **[Urooba Shameem](https://github.com/UroobaShameem)**
 - **[Zunain Ali Azam](https://github.com/ZunainAliAzam)**
 - **[Ahmed Ali](https://github.com/Ahmad43A)**
 - **[Mariya Suleman](https://github.com/Mar67890)**
